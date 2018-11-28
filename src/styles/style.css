@@ -1,0 +1,136 @@
+/* 页面布局 */
+.el-header,.el-footer {
+  color: #333;
+  text-align: center;
+  line-height: 60px;
+}
+
+.el-main {
+  width: 100%;
+}
+
+.el-footer {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+  height: 20px !important;
+  line-height: 20px;
+  background: #fff;
+  width: 100%;
+  font-size: 14px;
+}
+
+#app .el-header .img {
+  width: 350px;
+  height: 100%;
+  float: left;
+  box-sizing: border-box;
+  /* padding: 20px 25px 25px 0; */
+}
+#app .el-header .img img {
+  width: 100%;
+}
+#app .el-header{
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 2001;
+    background: #fff;
+    text-align: center;
+  }
+#app .el-header>div{
+  width: 1240px;
+  height: 100%;
+  margin: 0 auto;
+}
+.el-container {
+  max-width: 1360px;
+  height: 100%;
+  margin: 0 auto;
+}
+.p-t-20 {
+  padding-top: 20px;
+}
+.aside{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  margin-top: 100px;
+  margin-bottom: -17px;
+  overflow-x:auto;
+  transition: all 1s;
+  z-index: 1999;
+}
+.main{
+  margin-left:350px;
+}
+.pure-menu-list {
+  margin-bottom: 40px;
+}
+.pure-menu-list  li{
+  list-style-type: none;
+}
+.pure-menu-list li a{
+  display: block;
+  height: 40px;
+  color: #444;
+  line-height: 40px;
+  font-size: 20px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-decoration: none;
+  font-weight: bold;
+}
+.pure-menu-list .fun {
+  font-size: 0.85em;
+}
+.pure-menu-list .fun li {
+  margin-top: 0.5em;
+}
+.pure-menu-list .fun li a{
+  text-decoration: none;
+  color: #34495e;
+  font-size: 1em;
+  font-weight: normal;
+}
+.tips {
+  color: #f66;
+}
+.params {
+  color: #e96900;
+}
+.blue {
+  color: #409EFF;
+}
+/* 代码code */
+pre{
+  display: block;
+  font-family: monospace;
+  white-space: pre;
+  margin: 1em 0px;
+}
+code{
+  font-family: unset;
+  background-color: #f9fafc;
+  padding: 0 4px;
+  border: 1px solid #eaeefb;
+  border-radius: 4px;
+  line-height: 30px;
+}
+.hljs{
+  display: block;
+  line-height: 1.8;
+  overflow-x: auto;
+  font-family: Menlo,Monaco,Consolas,Courier,monospace;
+  font-size: 12px;
+  padding: 18px 24px;
+  background-color: #fafafa;
+  border: 1px solid #eaeefb;
+  margin-bottom: 25px;
+  border-radius: 4px;
+  -webkit-font-smoothing: auto;
+}
+

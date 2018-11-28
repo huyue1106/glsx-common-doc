@@ -1,0 +1,692 @@
+{
+	"data": [
+		{
+			"id": "Get",
+			"href": "#Get",
+			"method": "$Get",
+			"parameter": "Key，type（TYPE.LOCAL和TYPE.SESSION，默认为TYPE.LOCAL）",
+			"description": "返回Key的Value",
+			"instructions": "this.$Get('local_config')，返回local_config",
+			"tips": "注意：TYPE.LOCAL表示localStorage,TYPE.SESSION表示为sessionStorage"
+		}, {
+			"id": "Set",
+			"method": "$Set",
+			"parameter": "Key（必选），val（必选），type（默认为TYPE.LOCAL，同上）",
+			"description": "设置Key的Value",
+			"instructions": "this.$Set('example', '1234')，设置一条Key为example，值为1234的数据在local Storage中；当Key，value未传参时，值为undefined"
+		}, {
+			"method": "$Remove",
+			"id": "Remove",
+			"parameter": "Key，type（默认为TTPE.LOCAL，同上）",
+			"description": "清除Key",
+			"instructions": "this.$Remove('example')，清除Key为example的数据"
+		}, {
+			"id": "set_session",
+			"method": "$set_session",
+			"parameter": "Key（必选），val（必选），ex（设置过期时间，默认为20，即20分钟）",
+			"description": "在Session Storage中设置Key的Value",
+			"instructions": "this.$set_session('example', '123456')，设置一条Key为example，值为123456的数据在Session Storage中；当Key，value为传参时，值为undefined",
+			"tips": "注意：ex暂时不可用"
+		}, {
+			"id": "get_session",
+			"method": "$get_session",
+			"parameter": "Key",
+			"description": "返回Session Storage中Key的Value",
+			"instructions": "this.$get_session('example')，返回Session Storage中Key为example的数据"
+		}, {
+			"id": "remove_session",
+			"method": "$remove_session",
+			"parameter": "Key",
+			"description": "清除Session Storage中Key",
+			"instructions": "this.$remove_session('example')，清除Session Storage中Key为example的数据"
+		}, {
+			"id": "remove_auth",
+			"method": "$remove_auth",
+			"parameter": "无",
+			"description": "返回删除app.auth和app.axios后的local_config的Value",
+			"instructions": "this.$remove_auth()"
+		}, {
+			"id": "gl_has",
+			"method": "$gl_has",
+			"parameter": "res(必选，获取的权限）",
+			"description": "返回true或是false，表示是否有权限",
+			"instructions": "this.$gl_has(value)"
+		}, {
+			"id": "get_config",
+			"method": "$get_config",
+			"parameter": "无",
+			"description": "返回Local Storage中local_config的Value",
+			"instructions": "this.$get_config()"
+		}, {
+			"id": "set_config",
+			"method": "$set_config",
+			"parameter": "val",
+			"description": "设置Local Storage中local_config的Value",
+			"instructions": "this.$set_config({ 'defaultColor': '#FF0000' })，设置一条defaultColor为#FF0000的数据在local_config中，但原来的值依旧存在",
+			"tips": "注意：$set_config是将新值和旧值合并，没有的属性添加上，已有的属性不删除；而$cover_config是将新值完全替换原来的值，原来的数据被覆盖"
+		}, {
+			"id": "cover_config",
+			"method": "$cover_config",
+			"parameter": "val",
+			"description": "设置Local Storage中local_config的Value",
+			"instructions": "this.$cover_config({ 'defaultColor': '#FF0000' })，设置一条defaultColor为#FF0000的数据在local_config中，原来的值被该条数据覆盖",
+			"tips": "注意：val为空时，local_config为undefined，会出现很糟糕的事情哦~最好不要这么使用哟！"
+		}, {
+			"id": "get_session_config",
+			"method": "$get_session_config",
+			"parameter": "无",
+			"description": "返回Session Storage中session_config的Value",
+			"instructions": "this.$get_session_config()"
+		}, {
+			"id": "set_session_config",
+			"method": "$set_session_config",
+			"parameter": "val",
+			"description": "设置Session Storage中session_config的Value",
+			"instructions": "this.$set_session_config(scfg)，将session_config的值设置为scfg",
+			"tips": "注意：val为空时，session_config为undefined，会出现很糟糕的事情哦~最好不要这么使用哟！"
+			}, {
+			"id": "remove_session_config",
+			"method": "$remove_session_config",
+			"parameter": "无",
+			"description": "清除Session Storage中session_config",
+			"instructions": "this.$remove_session_config()，清除session_config"
+		}, {
+			"id": "get_config_by_key",
+			"method": "$get_config_by_key",
+			"parameter": "Key（必选）",
+			"description": "返回local_config中Key的值",
+			"instructions": "this.$get_config_by_key(AppConst.Key)，返回local_config中app的值"
+		}, {
+			"id": "set_config_by_key",
+			"method": "$set_config_by_key",
+			"parameter": "Key（必选），val",
+			"description": "设置local_config中Key的值",
+			"instructions": "this.$set_config_by_key(AppConst.Key, { 'defaultColor': '#FF0000' })，将local_config中app的值设置为{ 'defaultColor': '#FF0000' }"
+		}, {
+			"id": "get_session_config_by_key",
+			"method": "$get_session_config_by_key",
+			"parameter": "Key（必选）",
+			"description": "返回session_config中Key的值",
+			"instructions": "this.$get_session_config_by_key(AppConst.Key)，返回session_config中app的值"
+		}, {
+			"id": "set_session_config_by_key",
+			"method": "$set_session_config_by_key",
+			"parameter": "Key（必选），val",
+			"description": "设置session_config中Key的值",
+			"instructions": "this.$set_session_config_by_key(AppConst.Key, { 'defaultColor': '#FF0000' })，将session_config中app的值设置为{ 'defaultColor': '#FF0000' }"
+		}, {
+			"id": "remove_session_config",
+			"method": "$remove_session_config",
+			"parameter": "无",
+			"description": "清除session_config",
+			"instructions": "this.remove_session_config()"
+		}, {
+			"id": "remove_config",
+			"method": "$remove_config",
+			"parameter": "无",
+			"description": "清除Local Storage中local_config",
+			"instructions": "this.$remove_config()"
+		}, {
+			"id": "set_token",
+			"method": "$set_token",
+			"parameter": "val",
+			"description": "设置app.Auth.Token的Value",
+			"instructions": "this.set_token(AppConst.Auth.Token.Key, data.ticketId)"
+		}, {
+			"id": "get_token",
+			"method": "$get_token",
+			"parameter": "无",
+			"description": "获取app.Auth.Token",
+			"instructions": "this.$get_token()"
+		}, {
+			"id": "remove_token",
+			"method": "$remove_token",
+			"parameter": "无",
+			"description": "清除app.Auth.Token",
+			"instructions": "this.$remove_token()"
+		}, {
+			"id": "recursion_get",
+			"method": "$recursion_get",
+			"parameter": "obj（必选，对象），Key（必选，描述一个对象属性）",
+			"description": "获取对象 Key包含的属性",
+			"instructions": "const configSession = this.$get_session_config(); var result = this.$recursion_get(configSession, AppConst.Key) 此结果等同于使用$get_session_config_by_key"
+		}, {
+			"id": "recursion_set",
+			"method": "$recursion_set",
+			"parameter": "obj（必选，对象），Key（必选，描述一个对象属性），val",
+			"description": "给对象 Key包含的属性赋值",
+			"instructions": "const configSession = this.$get_session_config();const val = { defaultColor: '#FF0000' };this.$recursion_set(configSession, AppConst.Key, val)",
+			"tips": "注意：此方法只是将val设置进了configSession对象中，但并未存入缓存，如需缓存，还需调用其他方法"
+		}, {
+			"id": "first_uppercase",
+			"method": "$first_uppercase",
+			"parameter": "str（必选）",
+			"description": "对第一个字母进行大写",
+			"instructions": "this.$first_uppercase(AppConst.Key)，得到'App'"
+		}, {
+			"id": "get_menus",
+			"method": "$get_menus",
+			"parameter": "aResources（权限资源），parentId（父菜单id），parentName（父菜单名）",
+			"description": "根据父id获取菜单列表",
+			"instructions": "this.$get_menus(this.app.auth.resources, 0),得到的是parentId为0的对象数组"
+		}, {
+			"id": "Penpal",
+			"method": "$Penpal",
+			"parameter": "无",
+			"description": "父系统与子系统相互通信，本系统中定义的方法另一个系统中可用",
+			"instructions": "父系统使用const con = this.$Penpal.connectToChild({methods: {getResources() {...} })，子系统使用this.$Penpal.connectToParent({methods: {setTheme(color){...} }})"
+		}, {
+			"id": "Theme",
+			"method": "$Theme",
+			"parameter": "无",
+			"description": "主题色",
+			"instructions": "new this.$Theme()，获得一个theme的对象"
+		}, {
+			"id": "merge",
+			"method": "$merge",
+			"parameter": "def，obj，两个json对象",
+			"description": "合并json对象，以后者覆盖前者",
+			"instructions": "def={foo: 1, bar:2} obj={foo:2}  merge(def,obj): {foo:2, bar:2}"
+		}, {
+			"id": "deep_clone",
+			"method": "$deep_clone",
+			"parameter": "接受一个参数，obj（深拷贝对象）",
+			"description": "深克隆所有原型链上的对象和属性",
+			"instructions": "当你将一个对象赋值给变量时，实际是赋值给这个变量一个指针，这个对象和指针指向的是同一个地址。这意味着，你改变这个变量的同时，之前的对象也发生了改变，但是这并不是你想要的，这时候你可以使用this.$deep_clone(obj)，将obj对象深拷贝一份，这样就有了两个不同的引用对象了，但是他们的值是相同的"
+		}, {
+			"id": "drop_while",
+			"method": "$drop_while",	
+			"parameter": "接受两个参数，array（必选），[Key, value]（必选）",
+			"description": "删除数组中Key为value的项",
+			"instructions": "const array = [{ a: 1 }, { b: 2 }, { c: 3 }];this.$drop_while(array, ['a', 1]);返回删除Key为value之后的数组"
+		}, {
+			"id": "debounce",
+			"method": "$debounce",
+			"parameter": "",
+			"description": "设置延迟",
+			"instructions": ""
+		}, {
+			"id": "color_to_rgb",
+			"method": "$color_to_rgb",
+			"parameter": "接受两个参数，color（必选，十六进制的颜色值），alpha（可选，透明度）",
+			"description": "十六进制颜色值转换为rgb",
+			"instructions": "this.$color_to_rgb('#FF0000', '.7')，返回RGB(255,0,0,.7)"
+		}, {
+			"id": "client_height",
+			"method": "$client_height",
+			"parameter": "无",
+			"description": "获取屏幕可见区域高度",
+			"instructions": "this.$client_height()，返回网页可见区域高度"
+		}, {
+			"id": "http",
+			"method": "$http",
+			"parameter": "无",
+			"description": "http请求，",
+			"instructions": ""
+		}, {
+			"id": "get_session_common_config",
+			"method": "$get_session_common_config",
+			"parameter": "——",
+			"description": "返回Session Storage中session_common_config的Value",
+			"instructions": "this.$get_session_common_config()，返回session_common_config的值"
+		}
+	],
+	"consts": [
+		{
+			"id": "0001",
+			"Key": "LOCAL_CONFIG",
+			"description": "local Storage中的local_config",
+			"instructions": "未暴露，common外部不可用"
+		}, {
+			"id": "0002",
+			"Key": "SESSION_CONFIG",
+			"description": "Session Storage中的session_fonfig",
+			"instructions": "未暴露，common外部不可用"
+		}, {
+			"id": "0003",
+			"Key": "COMMON_COFIG",
+			"description": "Session Storage中的session_common_config",
+			"instructions": "未暴露，common外部不可用"
+		}, {
+			"id": "0004",
+			"Key": "SESSION_CONFIG_HEADER",
+			"description": "Session Storage中的session_config_header",
+			"instructions": "未暴露，common外部不可用"
+		}, {
+			"id": "0005",
+			"Key": "SESSION_CONFIG_ASIDE",
+			"description": "Session Storage中的session_config_aside",
+			"instructions": "未暴露，common外部不可用"
+		}, {
+			"id": "0006",
+			"Key": "SESSION_CONFIG_FOOTER",
+			"description": "Session Storage中的session_config_footer",
+			"instructions": "未暴露，common外部不可用"
+		}, {
+			"id": "0007",
+			"Key": "AppConst.Key",
+			"description": "app",
+			"instructions": ""
+		}, {
+			"id": "0008",
+			"Key": "AppConst.States.OPEN",
+			"description": "打开状态,value为2",
+			"instructions": "SetAside({ key: AsideConst.State.Key, value: AppConst.States.OPEN)}"
+		}, {
+			"id": "0009",
+			"Key": "AppConst.States.CLOSE",
+			"description": "关闭状态,value为1",
+			"instructions": "SetAside({ key: AsideConst.State.Key, value: AppConst.States.CLOSE)}"
+		}, {
+			"id": "0010",
+			"Key": "AppConst.MainVisible.Key",
+			"description": "OSS首页显示隐藏，value为true或者false",
+			"instructions": "Set(AppConst.mainVisible, AppConst.Visibility.HIDDEN)"
+		}, {
+			"id": "0011",
+			"Key": "AppConst.Visibility.HIDDEN",
+			"description": "OSS左侧菜单隐藏,value为false",
+			"instructions": "Set(AppConst.mainVisible, AppConst.Visibility.HIDDEN)"
+		}, {
+			"id": "0012",
+			"Key": "AppConst.Visibility.VISIBLE",
+			"description": "OSS左侧菜单显示,value为true",
+			"instructions": "Set(this.aside.visible, AppConst.Visibility.VISIBLE)"
+		}, {
+			"id": "0013",
+			"Key": "AppConst.Device.Key",
+			"description": "设备",
+			"instructions": "SetApp({key: AppConst.Device.Key, value: AppConst.Device.Types.MINSIZE})"
+		}, {
+			"id": "0014",
+			"Key": "AppConst.Device.Types.MINSIZE",
+			"description": "设备是小屏,value为'minsize'",
+			"instructions": "SetApp({key: AppConst.Device.Key, value: AppConst.Device.Types.MINSIZE})"
+		}, {
+			"id": "0015",
+			"Key": "AppConst.Device.Types.DESKTOP",
+			"description": "设备是大屏,value为'desktop'",
+			"instructions": "SetApp({key: AppConst.Device.Key, value: AppConst.Device.Types.DESKTOP})"
+		}, {
+			"id": "0016",
+			"Key": "AppConst.ClientHeight.Key",
+			"description": "网页可见区域高度",
+			"instructions": "方法名({ key: AppConst.ClientHeight.Key, ...})"
+		}, {
+			"id": "0017",
+			"Key": "AppConst.DefaultColor.Key",
+			"description": "系统默认颜色",
+			"instructions": "Set(AppConst.DefaultColor.Key, theme)"
+		}, {
+			"id": "0018",
+			"Key": "AppConst.Auth.Key",
+			"description": "权限",
+			"instructions": ""
+		}, {
+			"id": "0019",
+			"Key": "AppConst.Auth.Resources.Key",
+			"description": "权限数组",
+			"instructions": "this.SetSession(AppConst.Auth.Resources.Key, res)"
+		}, {
+			"id": "0020",
+			"Key": "AppConst.Auth.Roles.Key",
+			"description": "",
+			"instructions": ""
+		}, {
+			"id": "0021",
+			"Key": "AppConst.Auth.Token.Key",
+			"description": "登录的票据",
+			"instructions": "this.SetSession(AppConst.Auth.Token.Key, data.ticketId)data为登录成功返回的数据"
+		}, {
+			"id": "0022",
+			"Key": "AppConst.Auth.Admin.Key",
+			"description": "",
+			"instructions": ""
+		}, {
+			"id": "0023",
+			"Key": "AppConst.Auth.Navs.Key",
+			"description": "",
+			"instructions": ""
+		}, {
+			"id": "0024",
+			"Key": "AppConst.Auth.Navs.First.Key",
+			"description": "",
+			"instructions": ""
+		}, {
+			"id": "0025",
+			"Key": "AppConst.Auth.Navs.Second.Key",
+			"description": "",
+			"instructions": ""
+		}, {
+			"id": "0026",
+			"Key": "AppConst.Auth.Navs.Third.Key",
+			"description": "",
+			"instructions": ""
+		}, {
+			"id": "0027",
+			"Key": "AppConst.Auth.Navs.Fourth.Key",
+			"description": "",
+			"instructions": ""
+		}, {
+			"id": "0028",
+			"Key": "AppConst.Auth.Navs.Fifth.Key",
+			"description": "",
+			"instructions": ""
+		}, {
+			"id": "0029",
+			"Key": "AppConst.Auth.CurNav.Key",
+			"description": "各级菜单列表对象",
+			"instructions": "this.SetSession(AppConst.Auth.CurNav.Key, tag.target)"
+		}, {
+			"id": "0030",
+			"Key": "AppConst.Auth.CurNav.First.Key",
+			"description": "一级菜单列表id",
+			"instructions": "this.SetSession(AppConst.Auth.CurNav.First.Key, nav4Id)"
+		}, {
+			"id": "0031",
+			"Key": "AppConst.Auth.CurNav.Second.Key",
+			"description": "二级菜单列表id",
+			"instructions": "this.SetSession(AppConst.Auth.CurNav.Second.Key, nav4Id)"
+		}, {
+			"id": "0032",
+			"Key": "AppConst.Auth.CurNav.Third.Key",
+			"description": "三级菜单列表id",
+			"instructions": "this.SetSession(AppConst.Auth.CurNav.Third.Key, nav3Id)"
+		}, {
+			"id": "0033",
+			"Key": "AppConst.Auth.CurNav.Fourth.Key",
+			"description": "四级菜单列表id",
+			"instructions": "this.SetSession(AppConst.Auth.CurNav.Fourth.Key, nav4Id)"
+		}, {
+			"id": "0034",
+			"Key": "AppConst.Auth.CurNav.Fifth.Key",
+			"description": "五级菜单列表id",
+			"instructions": "this.SetSession(AppConst.Auth.CurNav.Fifth.Key, nav4Id)"
+		}, {
+			"id": "0035",
+			"Key": "AppConst.Auth.SubLoaded.Key",
+			"description": "",
+			"instructions": ""
+		}, {
+			"id": "0036",
+			"Key": "AppConst.Auth.SubLoaded.Types.LOADED",
+			"description": "",
+			"instructions": ""
+		}, {
+			"id": "0037",
+			"Key": "AppConst.Auth.SubLoaded.Types.UNLOADED",
+			"description": "",
+			"instructions": ""
+		}, {
+			"id": "0038",
+			"Key": "AppConst.Axios.Key",
+			"description": "",
+			"instructions": ""
+		}, {
+			"id": "0039",
+			"Key": "AppConst.Axios.BaseURL.Key",
+			"description": "",
+			"instructions": ""
+		}, {
+			"id": "0040",
+			"Key": "AppConst.Axios.WhiteList.Key",
+			"description": "",
+			"instructions": ""
+		}, {
+			"id": "0041",
+			"Key": "AppConst.Axios.Timeout.Key",
+			"description": "",
+			"instructions": ""
+		}, {
+			"id": "0042",
+			"Key": "AsideConst.Key",
+			"description": "左侧菜单(包括logo)",
+			"instructions": ""
+		}, {
+			"id": "0043",
+			"Key": "AsideConst.Visible.Key",
+			"description": "左侧菜单显示隐藏",
+			"instructions": "方法名({ key: AsideConst.Visible.Key, value: ... })"
+		}, {
+			"id": "0044",
+			"Key": "AsideConst.State.Key",
+			"description": "左侧菜单的状态",
+			"instructions": "SetAside({ key: AsideConst.State.Key, value: AppConst.States.CLOSE)}"
+		}, {
+			"id": "0045",
+			"Key": "AsideConst.MaxWidth.Key",
+			"description": "左侧菜单的最大宽度",
+			"instructions": ""
+		}, {
+			"id": "0046",
+			"Key": "AsideConst.MinWidth.Key",
+			"description": "左侧菜单的最小宽度",
+			"instructions": ""
+		}, {
+			"id": "0047",
+			"Key": "AsideConst.Sidebar.Key",
+			"description": "三四级菜单",
+			"instructions": ""
+		}, {
+			"id": "0048",
+			"Key": "AsideConst.Sidebar.Visible.Key",
+			"description": "三四级菜单显示隐藏",
+			"instructions": ""
+		}, {
+			"id": "0049",
+			"Key": "AsideConst.Sidebar.TextColor.Key",
+			"description": "三四级菜单字体颜色",
+			"instructions": ""
+		}, {
+			"id": "0050",
+			"Key": "AsideConst.Sidebar.ActiveTextColor.Key",
+			"description": "三四级菜单选中项的字体颜色",
+			"instructions": ""
+		}, {
+			"id": "0051",
+			"Key": "AsideConst.Sidebar.BackgroundColor.Key",
+			"description": "三四级菜单的背景颜色",
+			"instructions": ""
+		}, {
+			"id": "0052",
+			"Key": "AsideConst.Logo.Key",
+			"description": "logo",
+			"instructions": ""
+		}, {
+			"id": "0053",
+			"Key": "AsideConst.Logo.Visible.Key",
+			"description": "logo显示隐藏",
+			"instructions": ""
+		}, {
+			"id": "0054",
+			"Key": "AsideConst.Logo.Height.Key",
+			"description": "logo的高度",
+			"instructions": ""
+		}, {
+			"id": "0055",
+			"Key": "AsideConst.Logo.Image.Key",
+			"description": "logo的图片",
+			"instructions": ""
+		}, {
+			"id": "0056",
+			"Key": "AsideConst.Logo.BackgroundColor.Key",
+			"description": "logo的背景颜色",
+			"instructions": ""
+		}, {
+			"id": "0057",
+			"Key": "FooterConst.Key",
+			"description": "底部footer",
+			"instructions": ""
+		}, {
+			"id": "0058",
+			"Key": "FooterConst.Visible.Key",
+			"description": "底部footer显示隐藏",
+			"instructions": ""
+		}, {
+			"id": "0059",
+			"Key": "FooterConst.Color.Key",
+			"description": "底部footer的字体颜色",
+			"instructions": ""
+		}, {
+			"id": "0060",
+			"Key": "FooterConst.BackgroundColor.Key",
+			"description": "底部footer的背景颜色",
+			"instructions": ""
+		}, {
+			"id": "0061",
+			"Key": "FooterConst.Height.Key",
+			"description": "底部footer的高度",
+			"instructions": ""
+		}, {
+			"id": "0062",
+			"Key": "HeaderConst.Key",
+			"description": "头部header",
+			"instructions": ""
+		}, {
+			"id": "0063",
+			"Key": "HeaderConst.Visible.Key",
+			"description": "头部header显示隐藏",
+			"instructions": ""
+		}, {
+			"id": "0064",
+			"Key": "HeaderConst.Height.Key",
+			"description": "头部header的高度",
+			"instructions": ""
+		}, {
+			"id": "0065",
+			"Key": "HeaderConst.Color.Key",
+			"description": "头部的字体颜色",
+			"instructions": ""
+		}, {
+			"id": "0066",
+			"Key": "HeaderConst.Navbar.Key",
+			"description": "系统设置管理块",
+			"instructions": ""
+		}, {
+			"id": "0067",
+			"Key": "HeaderConst.Navbar.Height.Key",
+			"description": "系统设置管理块的高度",
+			"instructions": ""
+		}, {
+			"id": "0068",
+			"Key": "HeaderConst.Navbar.Visible.Key",
+			"description": "系统设置管理块显示隐藏",
+			"instructions": ""
+		}, {
+			"id": "0069",
+			"Key": "HeaderConst.Navbar.User.Key",
+			"description": "系统设置管理块——用户信息",
+			"instructions": ""
+		}, {
+			"id": "0070",
+			"Key": "HeaderConst.Navbar.User.Visible.Key",
+			"description": "系统设置管理块——用户信息显示隐藏",
+			"instructions": ""
+		}, {
+			"id": "0071",
+			"Key": "HeaderConst.Navbar.User.Avatar.Key",
+			"description": "系统设置管理块——用户头像",
+			"instructions": ""
+		}, {
+			"id": "0072",
+			"Key": "HeaderConst.Navbar.User.Avatar.Visible.Key",
+			"description": "系统设置管理块——用户头像显示隐藏",
+			"instructions": ""
+		}, {
+			"id": "0073",
+			"Key": "HeaderConst.Navbar.User.Name.Key",
+			"description": "系统设置管理块——用户名字",
+			"instructions": "this.SetSession(HeaderConst.Navbar.User.Name.Key, data.realname)"
+		}, {
+			"id": "0074",
+			"Key": "HeaderConst.Navbar.User.Name.Visible.Key",
+			"description": "系统设置管理块——用户名字显示隐藏",
+			"instructions": ""
+		}, {
+			"id": "0075",
+			"Key": "HeaderConst.Navbar.Screenfull.Key",
+			"description": "系统设置管理块——全屏",
+			"instructions": ""
+		}, {
+			"id": "0076",
+			"Key": "HeaderConst.Navbar.Screenfull.Visible.Key",
+			"description": "系统设置管理块——全屏的显示隐藏",
+			"instructions": ""
+		}, {
+			"id": "0077",
+			"Key": "HeaderConst.Navbar.Logout.Key",
+			"description": "系统设置管理块——退出",
+			"instructions": ""
+		}, {
+			"id": "0078",
+			"Key": "HeaderConst.Navbar.Logout.Visible.Key",
+			"description": "系统设置管理块——退出的显示隐藏",
+			"instructions": ""
+		}, {
+			"id": "0079",
+			"Key": "HeaderConst.Navbar.Language.Key",
+			"description": "系统设置管理块——选择语言",
+			"instructions": "this.Set(HeaderConst.Navbar.Language.Key, lang)"
+		}, {
+			"id": "0080",
+			"Key": "HeaderConst.Navbar.Language.Visible.Key",
+			"description": "系统设置管理块——选择语言的显示隐藏",
+			"instructions": ""
+		}, {
+			"id": "0081",
+			"Key": "HeaderConst.Navbar.Settings.Key",
+			"description": "系统设置管理块——设置",
+			"instructions": ""
+		}, {
+			"id": "0082",
+			"Key": "HeaderConst.Navbar.Settings.Visible.Key",
+			"description": "系统设置管理块——设置的显示隐藏",
+			"instructions": ""
+		}, {
+			"id": "0083",
+			"Key": "HeaderConst.Navbar.ItemsArray.Key",
+			"description": "",
+			"instructions": "this.Set(HeaderConst.Navbar.ItemsArray.Key, value)"
+		}, {
+			"id": "0084",
+			"Key": "HeaderConst.Navbar.Theme.Key",
+			"description": "系统设置管理块——主题色",
+			"instructions": ""
+		}, {
+			"id": "0085",
+			"Key": "HeaderConst.Navbar.Theme.Visible.Key",
+			"description": "系统设置管理块——主题色的显示隐藏",
+			"instructions": ""
+		}, {
+			"id": "0086",
+			"Key": "HeaderConst.Navbar.Theme.PreDefineColors.Key",
+			"description": "系统设置管理块——主题色的预选色",
+			"instructions": ""
+		}, {
+			"id": "0087",
+			"Key": "HeaderConst.TagsView.Key",
+			"description": "历史标签",
+			"instructions": ""
+		}, {
+			"id": "0088",
+			"Key": "HeaderConst.TagsView.Visible.Key",
+			"description": "历史标签显示隐藏",
+			"instructions": ""
+		}, {
+			"id": "0089",
+			"Key": "HeaderConst.TagsView.Height.Key",
+			"description": "历史标签的高度",
+			"instructions": ""
+		}, {
+			"id": "0090",
+			"Key": "HeaderConst.TagsView.ActiveColor.Key",
+			"description": "被选中的历史标签的字体颜色",
+			"instructions": ""
+		}, {
+			"id": "0091",
+			"Key": "HeaderConst.TagsView.BackgroundColor.Key",
+			"description": "历史标签的背景颜色",
+			"instructions": ""
+		}
+	]
+}
